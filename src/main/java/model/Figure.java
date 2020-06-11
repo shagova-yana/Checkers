@@ -49,24 +49,4 @@ public class Figure {
     public void setEmpty() {
         empty = true;
     }
-
-    public void draw(GraphicsContext gc, double x, double y, double margin,
-                     double line) {
-        if (empty)
-            return;
-        if (color)
-            gc.setFill(Color.BLACK);
-        else gc.setFill(Color.WHITE);
-
-        gc.fillOval(x + margin * line, y + margin * line,
-                (1 - 2 * margin) * line, (1 - 2 * margin) * line);
-        gc.setStroke(Color.BLACK);
-        gc.strokeOval(x + margin * line, y + margin * line,
-                (1 - 2 * margin) * line, (1 - 2 * margin) * line);
-        if (color)
-            gc.setStroke(Color.WHITE);
-        if (queen)
-            gc.strokeOval(x + 2*margin * line, y + 2*margin * line,
-                    (1 - 4*margin) * line, (1 - 4*margin) * line);
-    }
 }

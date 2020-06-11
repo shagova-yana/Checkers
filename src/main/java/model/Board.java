@@ -2,7 +2,7 @@ package model;
 
 public class Board {
     private Figure[][] figure;
-    private int columns, line;
+    private final int columns, line;
 
     public Board(int line, int startCount) {
         this.columns = startCount;

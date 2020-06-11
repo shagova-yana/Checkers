@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Position {
     private int x, y;
-    public List<Position> route;
+    public List<Position> route = new ArrayList<>();
 
     public Position(int x, int y){
         this.x = x;
@@ -15,13 +15,10 @@ public class Position {
     public Position(Position pos){
         this.x = pos.x;
         this.y = pos.y;
-        if (pos.route != null)
-            route = new ArrayList<>(pos.route);
+        route = new ArrayList<>(pos.route);
     }
 
     public void addToRoute(Position step) {
-        if (route == null)
-            route = new ArrayList<>();
         route.add(step);
     }
 
@@ -31,8 +28,6 @@ public class Position {
     }
 
     public List<Position> getRoute() {
-        if (route == null)
-            return new ArrayList<>();
         return route;
     }
 
@@ -62,8 +57,7 @@ public class Position {
 
     public Position add(int x, int y) {
         Position result = new Position(this.x + x, this.y + y);
-        if (route != null)
-            result.route = new ArrayList<>(route);
+        result.route = new ArrayList<>(route);
         return result;
     }
     @Override
