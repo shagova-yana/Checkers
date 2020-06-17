@@ -12,7 +12,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import java.io.IOException;
 
 public class Main extends Application {
     private static Stage stage;
@@ -25,20 +24,14 @@ public class Main extends Application {
     }
 
     private void drawMessage(GraphicsContext gc, String str,
-                             double x, double y, double size, boolean color) {
-        if (color) {
-            gc.setFont(new Font("Arial Black", size));
-            gc.setFill(Color.BLACK);
-        }
-        else {
-            gc.setFont(new Font("Arial", size));
-            gc.setFill(Color.WHITE);
-        }
+                             double x, double y, double size) {
+        gc.setFont(new Font("Arial Black", size));
+        gc.setFill(Color.BLACK);
         gc.fillText(str, x, y);
     }
 
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(Stage primaryStage)  {
         Group root = new Group();
         Main.stage = primaryStage;
         Scene scene = new Scene(root);
@@ -71,7 +64,7 @@ public class Main extends Application {
         gc.clearRect(0, 0, gc.getCanvas().getWidth(), gc.getCanvas().getHeight());
         board.draw(gc);
         if (board.isOpponentSet()){
-            drawMessage(gc, board.message(), 10.0, 32.0, 22.0, true);
+            drawMessage(gc, board.message(), 10.0, 32.0, 22.0);
         }
 
         scene.setOnMouseClicked(
@@ -79,10 +72,10 @@ public class Main extends Application {
                     if (!board.isOpponentSet())
                         return;
                     if (board.isGameOverDelayed()){
-                        board.reset();
-                        scene.setOnMouseClicked(event -> {
-                            primaryStage.close();
-                        });
+                       board.reset();
+//                        scene.setOnMouseClicked(event -> {
+//                            primaryStage.close();
+//                        });
                     }
                     if (board.someLegalPos())
                         board.attemptMove(board.decodeMouse(e.getX(), e.getY()));
@@ -93,7 +86,7 @@ public class Main extends Application {
                             gc.getCanvas().getHeight());
                     board.draw(gc);
                     if (board.isOpponentSet()) {
-                        drawMessage(gc, board.message(), 10.0, 17.0, 20, true);
+                        drawMessage(gc, board.message(), 10.0, 17.0, 20);
                     }
                 });
         stage.show();
