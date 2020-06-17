@@ -73,9 +73,9 @@ public class Main extends Application {
                         return;
                     if (board.isGameOverDelayed()){
                        board.reset();
-//                        scene.setOnMouseClicked(event -> {
-//                            primaryStage.close();
-//                        });
+                       scene.setOnMouseClicked(event -> {
+                           primaryStage.close();
+                       });
                     }
                     if (board.someLegalPos())
                         board.attemptMove(board.decodeMouse(e.getX(), e.getY()));
