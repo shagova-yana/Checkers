@@ -31,7 +31,7 @@ public class Controller extends Logic {
     }
 
 //    public void reset() {
-//        this.board.reset();
+//        board.reset();
 //        this.lastColor = true;
 //        this.gameOver = false;
 //        this.opponentSet = false;
