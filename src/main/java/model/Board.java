@@ -19,17 +19,17 @@ public class Board {
             }
     }
 
-    public void reset() {
-        for (int i = 0; i < figure.length; i++)
-            for (int j = 0; j < figure[i].length; j++)
-                figure[i][j].setEmpty();
-
-        for (int j = 0; j < columns; j++)
-            for (int i = (j % 2 == 0) ? 1 : 0; i < figure.length; i += 2) {
-                figure[i][j].setBlack();
-                figure[figure.length - 1 - i][figure.length - 1 - j].setWhite();
-            }
-    }
+//    public void reset() {
+//        for (int i = 0; i < figure.length; i++)
+//            for (int j = 0; j < figure[i].length; j++)
+//                figure[i][j].setEmpty();
+//
+//        for (int j = 0; j < columns; j++)
+//            for (int i = (j % 2 == 0) ? 1 : 0; i < figure.length; i += 2) {
+//                figure[i][j].setBlack();
+//                figure[figure.length - 1 - i][figure.length - 1 - j].setWhite();
+//            }
+//    }
 
     public Figure get(Position pos) {
         if (pos.inBounds(figure.length))

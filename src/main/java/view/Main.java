@@ -72,7 +72,7 @@ public class Main extends Application {
                     if (!board.isOpponentSet())
                         return;
                     if (board.isGameOverDelayed()){
-                       board.reset();
+                       //board.reset();
                        scene.setOnMouseClicked(event -> {
                            primaryStage.close();
                        });

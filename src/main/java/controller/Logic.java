@@ -6,7 +6,7 @@ import java.util.*;
 public class Logic {
 
     // передает список позиций достижимых с данной клетки
-    public List<Position> getMoves(Position from) {
+     List<Position> getMoves(Position from) {
         List<Position> result;
         if (Controller.board.get(from).isQueen())
             result = getStrikesQueen(from);
@@ -36,7 +36,7 @@ public class Logic {
     }
 
     // возвращает список позиций ударов из позиции
-    private List<Position> getStrikes(Position from) {
+     List<Position> getStrikes(Position from) {
         LinkedList<Position> search = new LinkedList<>();
         search.add(from);
         List<Position> result = new ArrayList<>();
@@ -68,7 +68,7 @@ public class Logic {
 
 
     // список ударов для дамки
-    private List<Position> getStrikesQueen(Position from) {
+     List<Position> getStrikesQueen(Position from) {
         LinkedList<Position> search = new LinkedList<>();
         search.add(from);
         List<Position> result = new ArrayList<>();
@@ -109,7 +109,7 @@ public class Logic {
     }
 
     //проверка и возвращение самые длинные возможные ходы для данного цвета
-    public List<Position> longestAvailableMoves(int minDepth, boolean color) {
+     List<Position> longestAvailableMoves(int minDepth, boolean color) {
         List<Position> result = new ArrayList<>();
         for (int i = 0; i < Controller.board.size(); i++)
             for (int j = 0; j < Controller.board.size(); j++)
@@ -129,7 +129,7 @@ public class Logic {
     }
 
     // поиск и проверка дамок
-    protected void findQueen() {
+     void findQueen() {
         for (int y = 0; y < Controller.board.size(); y++) {
             if (!Controller.board.get(y, 0).isEmpty() && !Controller.board.get(y, 0).color())
                 Controller.board.get(y, 0).setQueen();
@@ -140,7 +140,7 @@ public class Logic {
     }
 
     //удаляет все позиции длина мартшрута которых, меньше самой длинной из списка
-    private List<Position> filterShorter(List<Position> route) {
+     List<Position> filterShorter(List<Position> route) {
         int maxDepth = route.isEmpty() ? 0 : route.get(route.size() - 1).routeLength();
         route.removeIf(pos -> pos.routeLength() != maxDepth);
         return route;

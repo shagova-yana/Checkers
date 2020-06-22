@@ -30,12 +30,12 @@ public class Controller extends Logic {
         this.opponentSet = false;
     }
 
-    public void reset() {
-        this.board.reset();
-        this.lastColor = true;
-        this.gameOver = false;
-        this.opponentSet = false;
-    }
+//    public void reset() {
+//        this.board.reset();
+//        this.lastColor = true;
+//        this.gameOver = false;
+//        this.opponentSet = false;
+//    }
 
     // подсвечивает все возможные ходы
     public void highlightMoves(Position from) {
@@ -116,14 +116,14 @@ public class Controller extends Logic {
         return gameOver;
     }
 
-        public String message() {
-            if (!longestAvailableMoves(2, !lastColor).isEmpty()) {
-                return "Сейчас ходят: " + (lastColor ? "Белые" : "Черные") + "\nЖелательно рубить";
-            }
-            if (isGameOver())
-                return "Игра окончена! Нажмите, чтобы закрыть";
-            else return "Сейчас ходят: " + (lastColor ? "Белые" : "Черные");
+    public String message() {
+        if (!longestAvailableMoves(2, !lastColor).isEmpty()) {
+            return "Сейчас ходят: " + (lastColor ? "Белые" : "Черные") + "\nЖелательно рубить";
         }
+        if (isGameOver())
+            return "Игра окончена! Нажмите, чтобы закрыть";
+        else return "Сейчас ходят: " + (lastColor ? "Белые" : "Черные");
+    }
 
         // проверяет есть ли возможные позиции для хода
         public boolean someLegalPos() {
